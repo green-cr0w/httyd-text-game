@@ -1,3 +1,3 @@
 class DragonSpecies {
-  constructor(public name: string, public element: string) {}
+    private name: string;
 }
