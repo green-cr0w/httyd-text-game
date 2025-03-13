@@ -9,8 +9,10 @@ export class Dragon {
     private shots: number; //current shots
     private readonly maxShots: number; //max shots
     private state: string; //current state of dragon, can change with hp
-
-    constructor(name: string, description: string, dragonClass: string, firePower: number, physicalPower: number, health: number, maxHealth: number, shots: number, maxShots: number, state: string) {
+    private readonly recharge: number; //how long it takes for all shots to recharge
+    private readonly tooBig: boolean; //is dragon  too big
+    
+    constructor(name: string, description: string, dragonClass: string, firePower: number, physicalPower: number, health: number, maxHealth: number, shots: number, maxShots: number, state: string, recharge: number, tooBig: boolean) {
         this.name = name;
         this.description = description;
         this.class = dragonClass;
@@ -21,10 +23,12 @@ export class Dragon {
         this.shots = shots;
         this.maxShots = maxShots;
         this.state = state;
+        this.recharge = recharge;
+        this.tooBig = tooBig;
     }
 
     //update the state of the dragon
-    updateState(state: string): void {
+    public updateState(): void {
         let checkup: number = this.health/this.maxHealth;
         if (checkup == 1) {
             this.state = this.getName() + 'looks healthy and ready to fight!';
@@ -36,8 +40,8 @@ export class Dragon {
         }
     }
 
-    //kill it with fire!
-    fireattack(): void {
+    //KILL IT WITH FIRE
+    public fireattack(): void {
         if (this.shots > 0) {
             this.shots--;
             console.log(this.getName() + ' attacks with fire!');
@@ -47,12 +51,12 @@ export class Dragon {
     }
 
     //was that the bite of 87
-    physicalattack(): void {
+    public physicalattack(): void {
         console.log(this.getName() + ' attacks with a physical attack!');
     }
 
     //ouch
-    takeDamage(damage: number): void {
+    public takeDamage(damage: number): void {
         this.health -= damage;
         console.log(this.getName() + ' took ' + damage + ' damage!');
         if (this.health <= 0) {
@@ -62,16 +66,17 @@ export class Dragon {
     }
 
     //recover fireshots
-    recoverShots(): void {
+    public recoverShots(): void {
         this.shots = this.maxShots;
         console.log(this.getName() + ' has recovered its shots!');
     }
 
     //i need a healer
-    recoverHealth(): void {
+    public recoverHealth(): void {
         this.health = this.maxHealth;
         console.log(this.getName() + ' has recovered its health!');
     }
+
 
 
     //getters and setters
