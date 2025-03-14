@@ -15,25 +15,25 @@ export class DragonFactory {
         let dragon: Dragon;
         switch (species) {
             case DragonSpecies.CQ:
-                dragon = new Dragon(name, cqD, 'Boulder', 10, 20, 100, 100, 6, 6, 'Healthy', 3, false);
+                dragon = new Dragon(name, cqD, 'Boulder', 10, 20, 100, 100, 6, 6, 'Healthy', 3, false, false);
                 break;
             case DragonSpecies.CH:
-                dragon = new Dragon(name, chD, 'Mystery', 12, 9, 100, 100, 10, 10, 'Healthy', 3, false);
+                dragon = new Dragon(name, chD, 'Mystery', 12, 9, 100, 100, 10, 10, 'Healthy', 3, false, false);
                 break;
             case DragonSpecies.GG:
-                dragon = new Dragon(name, ggD, 'Sharp', 9, 12, 100, 100, 5, 5, 'Healthy', 3, false);
+                dragon = new Dragon(name, ggD, 'Sharp', 9, 12, 100, 100, 5, 5, 'Healthy', 24, false, false);
                 break;
             case DragonSpecies.TY:
-                dragon = new Dragon(name, tyD, 'Stoker', 17, 14, 100, 100, 10, 10, 'Healthy', 3, true);
+                dragon = new Dragon(name, tyD, 'Stoker', 17, 14, 100, 100, 10, 10, 'Healthy', 3, true, true);
                 break;
             case DragonSpecies.WH:
-                dragon = new Dragon(name, whD, 'Strike', 16, 12, 100, 100, 6, 6, 'Healthy', 3, false);
+                dragon = new Dragon(name, whD, 'Strike', 16, 12, 100, 100, 6, 6, 'Healthy', 3, false, false);
                 break;
             case DragonSpecies.SH:
-                dragon = new Dragon(name, shD, 'Tidal', 14, 10, 100, 100, 9, 9, 'Healthy', 3, false);
+                dragon = new Dragon(name, shD, 'Tidal', 14, 10, 100, 100, 9, 9, 'Healthy', 3, false, false);
                 break;
             case DragonSpecies.TC:
-                dragon = new Dragon(name, tcD, 'Tracker', 12, 14, 100, 100, 6, 6, 'Healthy', 3, false);
+                dragon = new Dragon(name, tcD, 'Tracker', 12, 14, 100, 100, 6, 6, 'Healthy', 3, false, false);
                 break;
         }
         return dragon;

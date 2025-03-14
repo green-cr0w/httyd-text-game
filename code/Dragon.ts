@@ -1,3 +1,4 @@
+import { Food } from './Food';
 export class Dragon {
     private readonly name: string; //player chooses it when creating the dragon
     private readonly description: string; //default, given to player when choosing
@@ -11,8 +12,9 @@ export class Dragon {
     private state: string; //current state of dragon, can change with hp
     private readonly recharge: number; //how long it takes for all shots to recharge
     private readonly tooBig: boolean; //is dragon  too big
+    private readonly eelEater: boolean; //is dragon an eel eater
     
-    constructor(name: string, description: string, dragonClass: string, firePower: number, physicalPower: number, health: number, maxHealth: number, shots: number, maxShots: number, state: string, recharge: number, tooBig: boolean) {
+    constructor(name: string, description: string, dragonClass: string, firePower: number, physicalPower: number, health: number, maxHealth: number, shots: number, maxShots: number, state: string, recharge: number, tooBig: boolean, eelEater: boolean) {
         this.name = name;
         this.description = description;
         this.class = dragonClass;
@@ -25,6 +27,7 @@ export class Dragon {
         this.state = state;
         this.recharge = recharge;
         this.tooBig = tooBig;
+        this.eelEater = eelEater;
     }
 
     //update the state of the dragon
@@ -77,10 +80,87 @@ export class Dragon {
         console.log(this.getName() + ' has recovered its health!');
     }
 
+    //feeding dragon
+    public feedDragon(food: Food): void {
+        if (food.getName() == 'Eel') {
+            if (this.eelEater == false) {
+                console.log(this.getName + ' does not eat eels!');
+            }
+            else {
+                this.health += food.getHealing();
+                console.log(this.getName() + ' has eaten eel and recovered ' + food.getHealing() + ' health!');
+            }
+        }
+        else {
+            this.health += food.getHealing();
+            console.log(this.getName() + ' has eaten fish and recovered ' + food.getHealing() + ' health!');
+        }
+        }
 
-
-    //getters and setters
-    getName(): string {
+    // #region Getters and Setters
+    public getName(): string {
         return this.name;
     }
+
+    public getDescription(): string {
+        return this.description;
+    }
+
+    public getClass(): string {
+        return this.class;
+    }
+
+    public getFirePower(): number {
+        return this.firePower;
+    }
+
+    public getPhysicalPower(): number {
+        return this.physicalPower;
+    }
+
+    public getHealth(): number {
+        return this.health;
+    }
+
+    public getMaxHealth(): number {
+        return this.maxHealth;
+    }
+
+    public getShots(): number {
+        return this.shots;
+    }
+
+    public getMaxShots(): number {
+        return this.maxShots;
+    }
+
+    public getState(): string {
+        return this.state;
+    }
+
+    public getRecharge(): number {
+        return this.recharge;
+    }
+
+    public getTooBig(): boolean {
+        return this.tooBig;
+    }
+
+    public getEelEater(): boolean {
+        return this.eelEater;
+    }
+
+    public setHealth(health: number): void {
+        this.health = health;
+    }
+
+    public setShots(shots: number): void {
+        this.shots = shots;
+    }
+
+    public setState(state: string): void {
+        this.state = state;
+    }
+    // #endregion
+
 }
