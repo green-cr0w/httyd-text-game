@@ -1,5 +1,5 @@
-import { Dragon } from './Dragon';
 import { DragonSpecies } from './DragonSpecies';
+import { Dragon } from './Dragon';
 
 export class DragonFactory {
     public static createDragon(species: DragonSpecies, name: string): Dragon {
