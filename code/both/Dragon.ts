@@ -14,7 +14,7 @@ export class Dragon {
     private readonly tooBig: boolean; //is dragon  too big
     private readonly eelEater: boolean; //is dragon an eel eater
     
-    constructor(name: string, description: string, dragonClass: string, firePower: number, physicalPower: number, health: number, maxHealth: number, shots: number, maxShots: number, state: string, recharge: number, tooBig: boolean, eelEater: boolean) {
+    constructor(name: string, dragonClass: string, description: string, firePower: number, physicalPower: number, health: number, maxHealth: number, shots: number, maxShots: number, state: string, recharge: number, tooBig: boolean, eelEater: boolean) {
         this.name = name;
         this.description = description;
         this.class = dragonClass;
