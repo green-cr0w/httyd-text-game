@@ -1,9 +1,9 @@
-export class Food {
-    private readonly name: string //kind of food
+export class Food extends Item{
     private readonly healing: number //how much health it gives back
 
-    public getName(): string {
-        return this.name;
+    constructor(name: string, description: string, isUsable: boolean, healing: number) {
+        super(name, description, isUsable);
+        this.healing = healing;
     }
 
     public getHealing(): number {
