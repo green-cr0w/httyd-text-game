@@ -1,3 +1,5 @@
+import { Item } from './Item';
+
 export class Food extends Item{
     private readonly healing: number //how much health it gives back
 

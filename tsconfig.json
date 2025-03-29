@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+      "target": "ES6",                    // Use ES6 syntax (modern browser support)
+      "lib": ["es2015", "dom"],           // Include DOM types for browser interaction
+      "module": "ES6",                    // Keep ES6 modules for better compatibility
+      "outDir": "./dist",                 // Output compiled files to the dist directory
+      "strict": true,                     // Enable strict type checking
+      "esModuleInterop": true,            // Interoperate with CommonJS and ES6 modules
+      "moduleResolution": "node",         // Resolve modules like Node.js does (useful for external modules)
+      "skipLibCheck": true,               // Skip type checking for declaration files (improves performance)
+      "noImplicitAny": true               // Prevent using 'any' unless explicitly declared
+  },
+  "include": [
+      "./code/**/*.ts"                    // Include all your TypeScript files
+  ]
+}

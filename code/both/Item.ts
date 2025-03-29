@@ -1,4 +1,4 @@
-abstract class Item {
+export abstract class Item {
     private readonly name: string;
     private readonly description: string;
     private readonly isUsable: boolean;

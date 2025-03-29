@@ -1,3 +1,5 @@
+import { Item } from './Item';
+
 export class Weapon extends Item {
     private readonly damage: number; //how much damage it does
 
