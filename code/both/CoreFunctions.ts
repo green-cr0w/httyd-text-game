@@ -2,7 +2,6 @@ export function getUserInput(): Promise<string> {
     // We gotta make it a promise to wait til user gives us smt
     return new Promise((resolve) => {
         const inputField = document.getElementById("userInput") as HTMLInputElement; // Input field at the bottom of the screen most likely
-        const submitButton = document.getElementById("submitButton") as HTMLButtonElement; // Just in case we have a button
 
         // Function to handle input submission
         const handleInput = () => {
@@ -11,19 +10,20 @@ export function getUserInput(): Promise<string> {
                 inputField.value = ""; // Clean up clean up (sun voice from SB)
                 printToScreen(`> ${userInput}`); // Show input on screen
                 resolve(userInput); // Input welcome home bbgirl
+                inputField.removeEventListener("keydown", onKeydown); // Remove listener to avoid dupes
             }
         };
 
-        // Button click handler
-        submitButton.onclick = handleInput;
-
         // Using onkeypressed makes it angy so we using onkeydown instead
-        inputField.onkeydown = (event) => {
+        const onKeydown = (event: KeyboardEvent) => {
             if (event.key === "Enter") { // When enter gets pressed
                 event.preventDefault(); // No default enter action
                 handleInput(); // Handle the input
             }
         };
+
+        inputField.addEventListener("keydown", onKeydown); // Listen for enter key
+        inputField.focus(); // Auto-focus input when waiting for user input
     });
 }
 

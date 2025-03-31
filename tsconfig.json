@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
-      "target": "ES6",                    // Use ES6 syntax (modern browser support)
-      "lib": ["es2015", "dom"],           // Include DOM types for browser interaction
-      "module": "ES6",                    // Keep ES6 modules for better compatibility
-      "outDir": "./dist",                 // Output compiled files to the dist directory
-      "strict": true,                     // Enable strict type checking
-      "esModuleInterop": true,            // Interoperate with CommonJS and ES6 modules
-      "moduleResolution": "node",         // Resolve modules like Node.js does (useful for external modules)
-      "skipLibCheck": true,               // Skip type checking for declaration files (improves performance)
-      "noImplicitAny": true               // Prevent using 'any' unless explicitly declared
+    "target": "ES6",                    
+    "lib": ["es2015", "dom"],           
+    "module": "ES6",                     // Webpack needs ES6 modules
+    "outDir": "./dist",                  // Output folder for Webpack
+    "rootDir": "./code",                 // Ensure TS looks for files in the right place
+    "strict": true,                     
+    "esModuleInterop": true,            
+    "moduleResolution": "node",         
+    "skipLibCheck": true,               
+    "noImplicitAny": true,              
+    "removeComments": true              
   },
   "include": [
-      "./code/**/*.ts"                    // Include all your TypeScript files
+    "./code/**/*.ts"                    
   ]
 }
+
+

@@ -9,8 +9,11 @@ export class Intro {
     private dragon!: Dragon;
 
     constructor() {
-        this.startIntro();
+        document.addEventListener("DOMContentLoaded", () => {
+            this.startIntro(); // Waits for html to load first
+        });
     }
+    
 
     // Start the intro sequence
     public async startIntro(): Promise<void> {

@@ -1,4 +1,8 @@
 import { Intro } from "./Intro";
 
-const intro = new Intro();
-intro.startIntro();
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM fully loaded and parsed.");
+  
+  const intro = new Intro();
+  intro.startIntro();
+});
