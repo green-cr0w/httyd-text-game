@@ -29,8 +29,18 @@ export function getUserInput(): Promise<string> {
 
 // Prints messages to the screen instead of console.log
 export function printToScreen(message: string): void {
-    const outputDiv = document.getElementById("gameText");
-    if (outputDiv) {
-        outputDiv.innerHTML += `<p>${message}</p>`; // Append new message
+    const consoleText = document.getElementById("console-text");
+
+    if (!consoleText) {
+        console.error("Console text area not found! Make sure #console-text exists in the HTML.");
+        return;
     }
+
+    // Create a new paragraph for the message
+    const paragraph = document.createElement("p");
+    paragraph.textContent = message;
+    consoleText.appendChild(paragraph);
+
+    // Automatically scroll to the bottom of the console
+    consoleText.scrollTop = consoleText.scrollHeight;
 }

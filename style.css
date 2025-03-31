@@ -1,0 +1,94 @@
+/* Root Variables */
+:root {
+  --bg-color: black;
+  --text-color: #33ff33;
+  --border-color: #33ff33;
+  --button-bg: none;
+  --button-hover: rgba(51, 255, 51, 0.2);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Top Frame */
+#top-frame {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--bg-color);
+  border-bottom: 2px solid var(--border-color);
+}
+
+#location-time {
+  flex: 1;
+  text-align: left;
+}
+
+.button-container {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  gap: 50px; /* Space between groups */
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  background: var(--button-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--button-hover);
+}
+
+/* Middle Art Area */
+#art-area {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* Console */
+#console {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#console-text {
+  flex-grow: 1;
+  overflow-y: auto;
+  color: var(--text-color); /* Ensure text color is visible */
+  font-family: monospace;
+  padding: 10px;
+}
+
+#player-input {
+  width: 100%;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  font-family: monospace;
+  padding: 5px;
+}

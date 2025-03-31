@@ -17,6 +17,7 @@ export class Intro {
 
     // Start the intro sequence
     public async startIntro(): Promise<void> {
+        console.log("Intro started!");
         printToScreen("Before entering this world, you should probably have a name. What do you want to be called?");
         let playerName = await getUserInput();
 
@@ -27,6 +28,11 @@ export class Intro {
 
         printToScreen(`Ah, that's a fine name. Are you sure you want to be called ${playerName}? (yes/no)`);
         let confirmation = await getUserInput();
+
+        while (confirmation.toLowerCase() !== "yes" && confirmation.toLowerCase() !== "no") {
+            printToScreen("Please type 'yes' or 'no'.");
+            confirmation = await getUserInput();
+        }
 
         if (confirmation.toLowerCase() === "yes") {
             this.player = new Player(playerName, 100, 10);

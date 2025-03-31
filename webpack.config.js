@@ -1,13 +1,16 @@
 const path = require("path");
 
 module.exports = {
+  mode: "development", // Explicitly set the mode
   entry: "./code/demo/Demo.ts", // Your main TS file
   output: {
     filename: "bundle.js", // The final bundled JS file
     path: path.resolve(__dirname, "dist"), // Output folder
+    devtoolModuleFilenameTemplate: "webpack:///[resource-path]", // Avoid eval in source maps
+    devtoolFallbackModuleFilenameTemplate: "webpack:///[resource-path]?[hash]", // Avoid eval fallback
   },
   optimization: {
-    minimize: false, // Minify the output for production
+    minimize: false, // Disable minification for easier debugging
   },
   resolve: {
     extensions: [".ts", ".js"], // Support importing .ts files
@@ -21,5 +24,5 @@ module.exports = {
       },
     ],
   },
-  devtool: false
+  devtool: "nosources-source-map", // Avoid eval completely
 };

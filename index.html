@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dragon Game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTYD Text Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Type something!</h1>
-    <input type="text" id="userInput" placeholder="Type something...">
+  <!-- Top Frame -->
+  <div id="top-frame">
+    <div id="location-time">
+      <span id="location">Berk</span> - <span id="time-of-day">Morning</span>
+    </div>
+    <div class="button-container">
+      <div class="button-group">
+        <button id="map-button">Map</button>
+        <button id="inventory-button">Inventory</button>
+      </div>
+      <div class="button-group">
+        <button id="help-button">Help</button>
+        <button id="settings-button">Settings</button>
+      </div>
+    </div>
+  </div>
 
-    <div id="gameText"></div> <!-- Match the TS ID -->
+  <!-- Art Area -->
+  <div id="art-area">
+    <p>Art will be displayed here.</p>
+  </div>
 
-    <script src="dist/bundle.js"></script>
+  <!-- Console -->
+  <div id="console">
+    <div id="console-text">
+      <p>Welcome to the game!</p>
+    </div>
+    <input type="text" id="userInput" placeholder="Type your command here..."> <!-- Updated ID -->
+  </div>
+
+  <!-- Include the JavaScript bundle -->
+  <script src="dist/bundle.js"></script>
 </body>
 </html>

@@ -237,10 +237,15 @@ function getUserInput() {
     });
 }
 function printToScreen(message) {
-    const outputDiv = document.getElementById("gameText");
-    if (outputDiv) {
-        outputDiv.innerHTML += `<p>${message}</p>`;
+    const consoleText = document.getElementById("console-text");
+    if (!consoleText) {
+        console.error("Console text area not found! Make sure #console-text exists in the HTML.");
+        return;
     }
+    const paragraph = document.createElement("p");
+    paragraph.textContent = message;
+    consoleText.appendChild(paragraph);
+    consoleText.scrollTop = consoleText.scrollHeight;
 }
 
 ;// ./code/demo/Intro.ts
@@ -265,6 +270,7 @@ class Intro {
     }
     startIntro() {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log("Intro started!");
             printToScreen("Before entering this world, you should probably have a name. What do you want to be called?");
             let playerName = yield getUserInput();
             while (!playerName) {
@@ -273,6 +279,10 @@ class Intro {
             }
             printToScreen(`Ah, that's a fine name. Are you sure you want to be called ${playerName}? (yes/no)`);
             let confirmation = yield getUserInput();
+            while (confirmation.toLowerCase() !== "yes" && confirmation.toLowerCase() !== "no") {
+                printToScreen("Please type 'yes' or 'no'.");
+                confirmation = yield getUserInput();
+            }
             if (confirmation.toLowerCase() === "yes") {
                 this.player = new Player(playerName, 100, 10);
                 printToScreen(`Ah, right! ${this.player.getName()}! I can already hear your enemies trembling at the sound of your name!`);
@@ -330,3 +340,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /******/ })()
 ;
+//# sourceMappingURL=bundle.js.map
