@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",               // Use React 17+ JSX transform
     "target": "ES6",                    
     "lib": ["es2015", "dom"],           
     "module": "ES6",                     // Webpack needs ES6 modules

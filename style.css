@@ -1,10 +1,19 @@
 /* Root Variables */
 :root {
   --bg-color: black;
-  --text-color: #33ff33;
-  --border-color: #33ff33;
+  --text-color: white;
+  --border-color: white;
   --button-bg: none;
   --button-hover: rgba(51, 255, 51, 0.2);
+}
+
+/* Light Theme */
+.light-mode {
+  --bg-color: white;
+  --text-color: black;
+  --border-color: black;
+  --button-bg: rgba(0, 0, 0, 0.1);
+  --button-hover: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -35,13 +44,13 @@ body {
 .button-container {
   flex: 2;
   display: flex;
-  justify-content: center;
-  gap: 50px; /* Space between groups */
+  justify-content: space-between; /* spreads the groups */
+  gap: 50px; /* spaces the buttons */
 }
 
 .button-group {
   display: flex;
-  gap: 10px;
+  gap: 10px; /* Space between buttons in the same group */
 }
 
 button {
@@ -77,9 +86,11 @@ button:hover {
 }
 
 #console-text {
+  display: flex;
+  flex-direction: column; /* text goes from up to down*/
   flex-grow: 1;
   overflow-y: auto;
-  color: var(--text-color); /* Ensure text color is visible */
+  color: var(--text-color); /* text visible */
   font-family: monospace;
   padding: 10px;
 }
@@ -91,4 +102,6 @@ button:hover {
   color: var(--text-color);
   font-family: monospace;
   padding: 5px;
+  box-sizing: border-box; /* respects the margins */
+  overflow: hidden; /* dont scroll on the bar itself */
 }

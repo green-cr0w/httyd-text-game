@@ -5,4 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
   const intro = new Intro();
   intro.startIntro();
+
+  const themeToggle = document.getElementById("theme-toggle");
+  themeToggle?.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+  });
 });

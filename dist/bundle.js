@@ -313,18 +313,36 @@ class Intro {
     askDragonName(dragonClass) {
         return __awaiter(this, void 0, void 0, function* () {
             printToScreen("Look at that, a fitting dragon for this viking. What will you name your new friend?");
+            console.log("Asking for dragon name...");
             let dragonName = yield getUserInput();
+            console.log(`User entered dragon name: ${dragonName}`);
             while (!dragonName) {
                 printToScreen("You gotta name your dragon!");
                 dragonName = yield getUserInput();
             }
-            const species = DragonSpecies[dragonClass.toUpperCase()];
+            let species;
+            if (dragonClass === "sharp") {
+                species = DragonSpecies.GG;
+            }
+            else if (dragonClass === "tidal") {
+                species = DragonSpecies.SH;
+            }
+            else if (dragonClass === "strike") {
+                species = DragonSpecies.WH;
+            }
+            else {
+                console.error(`Invalid dragon class: ${dragonClass}`);
+                printToScreen("Something went wrong while creating your dragon. Please try again.");
+                return;
+            }
+            console.log(`Dragon class: ${dragonClass}, Species: ${species}`);
             this.dragon = DragonFactory.createDragon(species, dragonName);
             printToScreen(`A fine name for a fine dragon!`);
             this.finalizeIntro();
         });
     }
     finalizeIntro() {
+        console.log("Finalizing intro...");
         printToScreen(`Finally, you are all set. And so, let the journey begin!`);
         printToScreen(`Welcome, ${this.player.getName()}! You're now ready to explore the world with your dragon, ${this.dragon.getName()}!`);
     }
@@ -336,6 +354,10 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM fully loaded and parsed.");
     const intro = new Intro();
     intro.startIntro();
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle === null || themeToggle === void 0 ? void 0 : themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+    });
 });
 
 /******/ })()

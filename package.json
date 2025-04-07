@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
     "ts-loader": "^9.5.2",
     "typescript": "^5.8.2",
     "webpack": "^5.98.0",
@@ -7,6 +9,9 @@
   },
   "scripts": {
     "build": "webpack --mode=production"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }
-

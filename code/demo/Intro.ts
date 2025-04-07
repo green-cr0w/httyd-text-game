@@ -67,14 +67,30 @@ export class Intro {
     // Ask the player for their dragon's name
     private async askDragonName(dragonClass: string): Promise<void> {
         printToScreen("Look at that, a fitting dragon for this viking. What will you name your new friend?");
+        console.log("Asking for dragon name...");
         let dragonName = await getUserInput();
+        console.log(`User entered dragon name: ${dragonName}`);
 
         while (!dragonName) {
             printToScreen("You gotta name your dragon!");
             dragonName = await getUserInput();
         }
 
-        const species = DragonSpecies[dragonClass.toUpperCase() as keyof typeof DragonSpecies];
+        // Determine the species based on the dragon class
+        let species: DragonSpecies;
+        if (dragonClass === "sharp") {
+            species = DragonSpecies.GG; // Grim Gnasher
+        } else if (dragonClass === "tidal") {
+            species = DragonSpecies.SH; // Shockjaw
+        } else if (dragonClass === "strike") {
+            species = DragonSpecies.WH; // Woolly Howl
+        } else {
+            console.error(`Invalid dragon class: ${dragonClass}`);
+            printToScreen("Something went wrong while creating your dragon. Please try again.");
+            return;
+        }
+
+        console.log(`Dragon class: ${dragonClass}, Species: ${species}`);
         this.dragon = DragonFactory.createDragon(species, dragonName);
         printToScreen(`A fine name for a fine dragon!`);
 
@@ -83,6 +99,7 @@ export class Intro {
 
     // Finish the intro
     private finalizeIntro(): void {
+        console.log("Finalizing intro...");
         printToScreen(`Finally, you are all set. And so, let the journey begin!`);
         printToScreen(`Welcome, ${this.player.getName()}! You're now ready to explore the world with your dragon, ${this.dragon.getName()}!`);
     }

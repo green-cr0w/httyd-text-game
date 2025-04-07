@@ -7,17 +7,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="root"></div> <!-- REACT MOUNT SPOT -->
   <!-- Top Frame -->
   <div id="top-frame">
-    <div id="location-time">
+    <div id="location-time"> <!-- fixed info section -->
       <span id="location">Berk</span> - <span id="time-of-day">Morning</span>
     </div>
-    <div class="button-container">
-      <div class="button-group">
+    <div class="button-container"> 
+      <div class="button-group"> <!-- other screens group -->
         <button id="map-button">Map</button>
         <button id="inventory-button">Inventory</button>
       </div>
-      <div class="button-group">
+      <div class="button-group"> <!-- settings group -->
+        <div id="theme-toggle-container">
+            <button id="theme-toggle">Toggle Theme</button>
+        </div>
         <button id="help-button">Help</button>
         <button id="settings-button">Settings</button>
       </div>
