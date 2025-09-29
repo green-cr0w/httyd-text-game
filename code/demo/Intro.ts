@@ -26,7 +26,7 @@ export class Intro {
             playerName = await getUserInput();
         }
 
-        printToScreen(`Ah, that's a fine name. Are you sure you want to be called ${playerName}? (yes/no)`);
+        printToScreen(`Oh, what a fitting name. Are you sure you want to be called ${playerName}? (yes/no)`);
         let confirmation = await getUserInput();
 
         while (confirmation.toLowerCase() !== "yes" && confirmation.toLowerCase() !== "no") {

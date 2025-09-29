@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client"; // Import createRoot from ReactDOM
 import App from "./App"; // Import the root component
-import "../style.css";
+<link rel="stylesheet" href="/style.css" />
 
 // Find the root DOM element
 const rootElement = document.getElementById("root");
